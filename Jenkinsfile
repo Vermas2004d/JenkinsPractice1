@@ -6,7 +6,7 @@ pipeline {
     }
 
     triggers{
-        pollscm('H/2 * * * *')
+        pollSCM('H/2 * * * *')
     }
 
     environment{
@@ -19,7 +19,7 @@ pipeline {
     stages {
         stage("Clone Repository"){
             steps {
-                git url: "https://github.com/Vermas2004d/JenkinsPractice1",
+                git url: "https://github.com/Vermas2004d/JenkinsPractice1.git",
                 branch: "main"
             }
         }
@@ -59,7 +59,7 @@ pipeline {
             }
         }
 
-        steps("Run New Container"){
+        stage("Run New Container"){
             steps {
                 sh """
                     docker run -d \
